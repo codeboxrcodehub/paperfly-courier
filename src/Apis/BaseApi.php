@@ -42,7 +42,7 @@ class BaseApi
         if (config("paperfly.sandbox") == true) {
             $this->baseUrl = "https://sandbox.paperfly-bd.com";
         } else {
-            $this->baseUrl = "";
+            $this->baseUrl = "https://api.paperfly.com.bd";
         }
     }
 
@@ -98,8 +98,8 @@ class BaseApi
             return json_decode($response->getBody());
         } catch (ClientException $e) {
             $errorResponse = json_decode($e->getResponse()->getBody()->getContents());
-            $message = $errorResponse->error->message;
-            $errors = $response->errors ?? [];
+            $message       = $errorResponse->error->message;
+            $errors        = $response->errors ?? [];
             throw new PaperflyException($message, $e->getCode(), $errors);
         }
     }
