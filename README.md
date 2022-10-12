@@ -54,3 +54,27 @@ PAPERFLY_KEY=""
 ```
 
 ## Usage
+
+### 1. Get ecourier delivery city list
+```
+use Codeboxr\PaperflyCourier\Facade\PaperflyCourier;
+
+return PaperflyCourier::order()->create([
+  "merOrderRef"          => "", // merchant invoice id
+  "pickMerchantName"     => "" // Pickup store name,
+  "pickMerchantAddress"  => "" // Pickup address,
+  "pickMerchantThana"    => "" // Pickup thana name,
+  "pickMerchantDistrict" => "" // Pickup district name,
+  "pickupMerchantPhone"  => "" // Pickup contact person name,
+  "productSizeWeight"    => "standard",
+  "productBrief"         => "" // Parcel product details, 
+  "packagePrice"         => "" //parcel price,
+  "deliveryOption"       => "regular",
+  "custname"             => "" // customer name,
+  "custaddress"          => "" // customer address,
+  "customerThana"        => "" // customer thana name,
+  "customerDistrict"     => "" // customer district name,
+  "custPhone"            => "" // customer phone number,
+  "max_weight"           => "" // parcel weight in kg
+]);
+```
