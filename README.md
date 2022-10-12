@@ -100,3 +100,16 @@ use Codeboxr\PaperflyCourier\Facade\PaperflyCourier;
 
 return PaperflyCourier::order()->cancel($referenceNumber) // reference number
 ```
+
+## Contributing
+
+Contributions to the Paperfly package are welcome. Please note the following guidelines before submitting your pull request.
+
+- Follow [PSR-4](http://www.php-fig.org/psr/psr-4/) coding standards.
+- Read Paperfly API documentations first
+
+## License
+
+Paperfly package is licensed under the [MIT License](http://opensource.org/licenses/MIT).
+
+Copyright 2022 [Codeboxr](https://codeboxr.com)
