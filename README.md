@@ -55,7 +55,7 @@ PAPERFLY_KEY=""
 
 ## Usage
 
-### 1. Get ecourier delivery city list
+### 1. Parcel Create
 ```
 use Codeboxr\PaperflyCourier\Facade\PaperflyCourier;
 
@@ -77,4 +77,26 @@ return PaperflyCourier::order()->create([
   "custPhone"            => "" // customer phone number,
   "max_weight"           => "" // parcel weight in kg
 ]);
+```
+
+
+### 2. Parcel Tracking
+```
+use Codeboxr\PaperflyCourier\Facade\PaperflyCourier;
+
+return PaperflyCourier::order()->tracking($trackingNumber) // Tracking Number
+```
+
+### 3. Parcel Details
+```
+use Codeboxr\PaperflyCourier\Facade\PaperflyCourier;
+
+return PaperflyCourier::order()->invoice($referenceNumber) // reference number
+```
+
+### 4. Cancel Parcel
+```
+use Codeboxr\PaperflyCourier\Facade\PaperflyCourier;
+
+return PaperflyCourier::order()->cancel($referenceNumber) // reference number
 ```
