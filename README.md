@@ -12,10 +12,10 @@ This is a Laravel/PHP package for [Paperfly](https://paperfly.com.bd/) BD Courie
 
 ## Features
 
-1. [Create parcel](https://github.com/codeboxrcodehub/ecourier-courier#1-get-ecourier-delivery-city-list)
-2. [Parcel tracking](https://github.com/codeboxrcodehub/ecourier-courier#2-get-ecourier-delivery-thanaupzilla-list)
-3. [Parcel details](https://github.com/codeboxrcodehub/ecourier-courier#3-get-ecourier-delivery-postcode-list)
-4. [Cancel parcel](https://github.com/codeboxrcodehub/ecourier-courier#3-get-ecourier-delivery-postcode-list)
+1. [Create parcel](https://github.com/codeboxrcodehub/paperfly-courier#1-parcel-create)
+2. [Parcel tracking](https://github.com/codeboxrcodehub/paperfly-courier#2-parcel-tracking)
+3. [Parcel details](https://github.com/codeboxrcodehub/paperfly-courier#3-parcel-details)
+4. [Cancel parcel](https://github.com/codeboxrcodehub/paperfly-courier#4-cancel-parcel)
 
 
 ## Requirements
