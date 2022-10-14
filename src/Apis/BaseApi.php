@@ -6,6 +6,7 @@ use Codeboxr\PaperflyCourier\Exceptions\PaperflyException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\ClientException;
+use Codeboxr\PaperflyCourier\Exceptions\PaperflyValidationException;
 
 class BaseApi
 {
@@ -102,6 +103,38 @@ class BaseApi
             $errors        = $response->errors ?? [];
             throw new PaperflyException($message, $e->getCode(), $errors);
         }
+    }
+    
+
+    /**
+     * Ecourier validation
+     *
+     * @param array $data
+     * @param array $requiredFields
+     *
+     * @throws PaperflyValidationException
+     */
+    public function validation($data, $requiredFields)
+    {
+        if (!is_array($data) || !is_array($requiredFields)) {
+            throw new \TypeError("Argument must be of the type array", 500);
+        }
+
+        if (!count($data) || !count($requiredFields)) {
+            throw new PaperflyValidationException("Invalid data!", 422);
+        }
+
+        $requiredColumns = array_diff($requiredFields, array_keys($data));
+        if (count($requiredColumns)) {
+            throw new PaperflyValidationException($requiredColumns, 422);
+        }
+
+        foreach ($requiredFields as $filed) {
+            if (isset($data[$filed]) && empty($data[$filed])) {
+                throw new PaperflyValidationException("$filed is required", 422);
+            }
+        }
+
     }
 
 }

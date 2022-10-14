@@ -4,6 +4,7 @@ namespace Codeboxr\PaperflyCourier\Apis;
 
 use Codeboxr\PaperflyCourier\Exceptions\PaperflyException;
 use GuzzleHttp\Exception\GuzzleException;
+use Codeboxr\PaperflyCourier\Exceptions\PaperflyValidationException;
 
 class OrderApi extends BaseApi
 {
@@ -11,12 +12,15 @@ class OrderApi extends BaseApi
      * New Order Create
      *
      * @param $array
+     *
      * @return mixed
      * @throws PaperflyException
-     * @throws GuzzleException
+     * @throws GuzzleException|PaperflyValidationException
      */
     public function create($array)
     {
+        $this->validation($array, ["pickMerchantThana", "productSizeWeight", "max_weight", "deliveryOption", "customerThana", "customerDistrict", "custPhone"]);
+
         $response = $this->authorization()->send("POST", "OrderPlacement", $array);
         return $response->success;
     }
@@ -25,6 +29,7 @@ class OrderApi extends BaseApi
      * Order Tracking
      *
      * @param $referenceNumber
+     *
      * @return mixed
      * @throws GuzzleException
      * @throws PaperflyException
@@ -42,6 +47,7 @@ class OrderApi extends BaseApi
      * invoice details
      *
      * @param $referenceNumber
+     *
      * @return mixed
      * @throws GuzzleException
      * @throws PaperflyException
